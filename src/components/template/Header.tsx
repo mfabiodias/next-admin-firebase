@@ -1,7 +1,9 @@
 import Title from './Title'
+import { useState } from "react"
 import ChangeTheme from './ChangeTheme'
 import useAppData from '../../data/hook/useAppData'
 import UserAvatar from './UserAvatar'
+import { IconMenu } from '../icons'
 
 interface HeaderProps {
     title: string
@@ -9,15 +11,29 @@ interface HeaderProps {
 }
 
 export default function Header(props: HeaderProps) {
-    const { theme, changeTheme } = useAppData()
+    const { theme, changeTheme, mobileMenu, sidebarMenu, toggleSidebarMenu } = useAppData()
+
+    function changeMenu() {
+        toggleSidebarMenu(!sidebarMenu)
+    }
 
     return (
-        <div className={`flex`}>
-            <Title title={props.title} subTitle={props.subTitle} />
-            <div className={`flex flex-grow justify-end items-center`}>
+        <div className={`flex dark:text-gray-200`}>
+            { !mobileMenu ? null : <div className={`flex items-center cursor-pointer`}>
+                <span onClick={changeMenu}>
+                    {IconMenu(8)}
+                </span>
+            </div> }
+            <div className={`flex items-center pl-4 `}>
+                Nome do Site
+            </div>
+            <div className={`flex flex-grow justify-end items-center pr-4 `}>
                 <ChangeTheme theme={theme} changeTheme={changeTheme} />
-                <UserAvatar className="ml-3" />
+            </div>
+            <div className={`flex justify-end items-center`}>
+                <UserAvatar />
             </div>
         </div>
+            // <Title title={props.title} subTitle={props.subTitle} />
     )
 }

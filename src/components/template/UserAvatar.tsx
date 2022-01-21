@@ -1,4 +1,5 @@
-import Link from 'next/link'
+import Image from 'next/image'
+import router from 'next/router'
 import useAuth from '../../data/hook/useAuth'
 
 interface UserAvatarProps {
@@ -7,17 +8,18 @@ interface UserAvatarProps {
 
 export default function UserAvatar(props: UserAvatarProps) {
     const { user } = useAuth()
-    
+
+    function goToProfile() {
+        router.push('/perfil')
+    }
+
     return (
-        <Link href="/perfil">
-            <img
-                src={user?.imageUrl ?? '/images/avatar.svg'}
-                alt="Usuário"
-                className={`
-                    h-10 w-10 rounded-full cursor-pointer dark:text-gray-200 items-center
-                    ${props.className}
-                `}
-            />
-        </Link>
+        <Image src={user?.imageUrl ?? '/images/avatar.svg'} width="40" height="40" 
+            className={`
+                rounded-full cursor-pointer mx-10
+                dark:text-gray-200 ${props.className}
+            `}
+            onClick={goToProfile}
+        />
     )
 }

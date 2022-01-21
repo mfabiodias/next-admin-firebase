@@ -1,4 +1,5 @@
 import useAuth from "../../data/hook/useAuth"
+import useAppData from '../../data/hook/useAppData'
 import { IconSettings, IconHome, IconExit, IconBell } from "../icons"
 import Logo from "./Logo"
 import MenuItem from "./MenuItem"
@@ -6,12 +7,23 @@ import MenuItem from "./MenuItem"
 export default function Sidebar() {
 
     const { logout } = useAuth()
+    const {  mobileMenu, sidebarMenu } = useAppData()
+
+    const hiddenMenu = !mobileMenu || sidebarMenu ? "flex" : "hidden md:flex" 
+
+    console.log("hiddenMenu")
+    console.log("CSS")
+    console.log(hiddenMenu)
+    console.log(mobileMenu, sidebarMenu)
+
+
+    // toggleSidebarMenu
 
     return (
         <aside className={`
-            flex flex-col
+            ${hiddenMenu} flex-col
             bg-gray-200 text-gray-700
-            dark:bg-gray-900
+            dark:bg-gray-900 
         `}>
             <div className={`
                 flex flex-col items-center justify-center

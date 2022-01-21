@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import useAppData from '../../data/hook/useAppData'
 
 interface MenuItemProps {
     text: string
@@ -9,6 +10,15 @@ interface MenuItemProps {
 }
 
 export default function MenuItem(props: MenuItemProps) {
+    const { mobileMenu, toggleSidebarMenu } = useAppData()
+
+    const onClick = () => {
+
+        if(mobileMenu) toggleSidebarMenu(false);
+
+        return props.onClick
+    }
+
     function renderizarLink() {
         return (
             <a className={`
@@ -25,7 +35,7 @@ export default function MenuItem(props: MenuItemProps) {
         )
     }
     return (
-        <li onClick={props.onClick} className={`
+        <li onClick={onClick} className={`
             hover:bg-gray-100 dark:hover:bg-gray-800
             cursor-pointer
         `}>
