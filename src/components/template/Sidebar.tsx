@@ -11,14 +11,6 @@ export default function Sidebar() {
 
     const hiddenMenu = !mobileMenu || sidebarMenu ? "flex" : "hidden md:flex" 
 
-    console.log("hiddenMenu")
-    console.log("CSS")
-    console.log(hiddenMenu)
-    console.log(mobileMenu, sidebarMenu)
-
-
-    // toggleSidebarMenu
-
     return (
         <aside className={`
             ${hiddenMenu} flex-col
