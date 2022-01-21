@@ -7,13 +7,14 @@ interface AvatarUsuarioProps {
 
 export default function AvatarUsuario(props: AvatarUsuarioProps) {
     const { usuario } = useAuth()
+    const img = '/images/avatar.svg'
     return (
         <Link href="/perfil">
             <img
                 src={usuario?.imagemUrl ?? '/images/avatar.svg'}
-                alt="Avatar do Usuário"
+                alt="Usuário"
                 className={`
-                    h-10 w-10 rounded-full cursor-pointer
+                    h-10 w-10 rounded-full cursor-pointer dark:text-gray-200 items-center
                     ${props.className}
                 `}
             />
