@@ -31,13 +31,13 @@ export default function Login() {
 
     return (
         <div className="flex h-screen items-center justify-center">
-            <div className="hidden md:block md:w-1/2 lg:w-2/3">
+            <div className="hidden md:block md:w-1/2 lg:w-3/5">
                 <img 
                     src="https://source.unsplash.com/random"
                     alt="Imagem da Tela de Autenticação"
                     className="h-screen w-full object-cover" />
             </div>
-            <div className="m-10 w-full md:w-1/2 lg:w-1/3">
+            <div className="m-10 w-full md:w-1/2 lg:w-2/5">
                 <h1 className={`text-3xl font-bold mb-5`}>
                     {mode === 'login' ? 'Entre com a Sua Conta' : 'Cadastre-se na Plataforma'}
                 </h1>
