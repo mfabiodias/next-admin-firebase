@@ -4,6 +4,7 @@ import ChangeTheme from './ChangeTheme'
 import useAppData from '../../data/hook/useAppData'
 import UserAvatar from './UserAvatar'
 import { IconMenu } from '../icons'
+import SYSADM from '../../config'
 
 interface HeaderProps {
     title: string
@@ -25,7 +26,7 @@ export default function Header(props: HeaderProps) {
                 </span>
             </div> }
             <div className={`flex items-center pl-4 `}>
-                Nome do Site
+                {SYSADM.BUSSINESS.NAME}
             </div>
             <div className={`flex flex-grow justify-end items-center pr-4 `}>
                 <ChangeTheme theme={theme} changeTheme={changeTheme} />
