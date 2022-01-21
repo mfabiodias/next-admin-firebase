@@ -1,27 +1,17 @@
 import Link from 'next/link'
-import useAppData from '../../data/hook/useAppData'
-
 interface MenuItemProps {
     text: string
     icon: any
     url?: string
     className?: string
-    onClick?: (evento: any) => void
+    onClick?: (evento: any) => any
 }
 
 export default function MenuItem(props: MenuItemProps) {
-    const { mobileMenu, toggleSidebarMenu } = useAppData()
-
-    const onClick = () => {
-
-        if(mobileMenu) toggleSidebarMenu(false);
-
-        return props.onClick
-    }
 
     function renderizarLink() {
         return (
-            <a className={`
+            <a onClick={props.onClick} className={`
                     flex flex-col justify-center items-center
                     h-20 w-20
                     dark:text-gray-200
@@ -34,8 +24,9 @@ export default function MenuItem(props: MenuItemProps) {
             </a>
         )
     }
+
     return (
-        <li onClick={onClick} className={`
+        <li onClick={props.onClick} className={`
             hover:bg-gray-100 dark:hover:bg-gray-800
             cursor-pointer
         `}>

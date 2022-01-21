@@ -97,6 +97,7 @@ export function AuthProvider(props) {
     }
 
     async function logout() {
+        console.log('sair')
         try {
             setLoading(true)
             await firebase.auth().signOut()

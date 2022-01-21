@@ -7,7 +7,12 @@ import MenuItem from "./MenuItem"
 export default function Sidebar() {
 
     const { logout } = useAuth()
-    const {  mobileMenu, sidebarMenu } = useAppData()
+    const {  sidebarMenu, mobileMenu, toggleSidebarMenu } = useAppData()
+
+    function toggleSidebar() {
+        if(mobileMenu) toggleSidebarMenu(false);
+    }
+
 
     const hiddenMenu = !mobileMenu || sidebarMenu ? "flex" : "hidden md:flex" 
 
@@ -25,9 +30,9 @@ export default function Sidebar() {
                 <Logo />
             </div>
             <ul className="flex-grow">
-                <MenuItem url="/" text="Início" icon={IconHome()} />
-                <MenuItem url="/ajustes" text="Ajustes" icon={IconSettings()} />
-                <MenuItem url="/notificacoes" text="Notificações" icon={IconBell()} />
+                <MenuItem url="/" text="Início" icon={IconHome()} onClick={toggleSidebar} />
+                <MenuItem url="/ajustes" text="Ajustes" icon={IconSettings()} onClick={toggleSidebar} />
+                <MenuItem url="/notificacoes" text="Notificações" icon={IconBell()} onClick={toggleSidebar} />
             </ul>
             <ul>
                 <MenuItem
