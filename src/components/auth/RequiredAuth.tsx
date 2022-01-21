@@ -1,12 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import router from 'next/router'
-import loading from '../../../public/images/loading.gif'
+import loadingImage from '../../../public/images/loading.gif'
 import useAuth from '../../data/hook/useAuth'
 
-export default function ForcarAutenticacao(props) {
+export default function RequiredAuth(props) {
 
-    const { usuario, carregando } = useAuth()
+    const { user, loading } = useAuth()
 
     function renderizarConteudo() {
         return (
@@ -16,7 +16,7 @@ export default function ForcarAutenticacao(props) {
                         dangerouslySetInnerHTML={{
                             __html: `
                                 if(!document.cookie?.includes("admin-template-cod3r-auth")) {
-                                    window.location.href = "/autenticacao"
+                                    window.location.href = "/login"
                                 }
                             `
                         }}
@@ -32,17 +32,17 @@ export default function ForcarAutenticacao(props) {
             <div className={`
                 flex justify-center items-center h-screen
             `}>
-                <Image src={loading} />
+                <Image src={loadingImage} />
             </div>
         )
     }
 
-    if(!carregando && usuario?.email) {
+    if(!loading && user?.email) {
         return renderizarConteudo()
-    } else if(carregando) {
+    } else if(loading) {
         return renderizarCarregando()
     } else {
-        router.push('/autenticacao')
+        router.push('/login')
         return null
     }
 }

@@ -1,13 +1,13 @@
-import { IconeLua, IconeSol } from "../icons";
+import { IconMoon, IconSun } from "../icons";
 
-interface BotaoAlternarTemaProps {
-    tema: string
-    alternarTema: () => void
+interface ChangeThemeProps {
+    theme: string
+    changeTheme: () => void
 }
 
-export default function BotaoAlternarTema(props: BotaoAlternarTemaProps) {
-    return props.tema === 'dark' ? (
-        <div onClick={props.alternarTema} className={`
+export default function ChangeTheme(props: ChangeThemeProps) {
+    return props.theme === 'dark' ? (
+        <div onClick={props.changeTheme} className={`
             hidden sm:flex items-center cursor-pointer
             bg-gradient-to-r from-yellow-300 to-yellow-600
             w-14 lg:w-24 h-8 p-1 rounded-full
@@ -17,7 +17,7 @@ export default function BotaoAlternarTema(props: BotaoAlternarTemaProps) {
                 bg-white text-yellow-600
                 w-6 h-6 rounded-full
             `}>
-                {IconeSol(4)}
+                {IconSun(4)}
             </div>
             <div className={`
                 hidden lg:flex items-center ml-4
@@ -27,7 +27,7 @@ export default function BotaoAlternarTema(props: BotaoAlternarTemaProps) {
             </div>
         </div>
     ) : (
-        <div onClick={props.alternarTema} className={`
+        <div onClick={props.changeTheme} className={`
             hidden sm:flex items-center justify-end cursor-pointer
             bg-gradient-to-r from-gray-500 to-gray-900
             w-14 lg:w-24 h-8 p-1 rounded-full
@@ -43,7 +43,7 @@ export default function BotaoAlternarTema(props: BotaoAlternarTemaProps) {
                 bg-black text-yellow-300
                 w-6 h-6 rounded-full
             `}>
-                {IconeLua(4)}
+                {IconMoon(4)}
             </div>
         </div>
     )

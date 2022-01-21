@@ -1,8 +1,8 @@
 import Link from 'next/link'
 
 interface MenuItemProps {
-    texto: string
-    icone: any
+    text: string
+    icon: any
     url?: string
     className?: string
     onClick?: (evento: any) => void
@@ -17,9 +17,9 @@ export default function MenuItem(props: MenuItemProps) {
                     dark:text-gray-200
                     ${props.className}
                 `}>
-                {props.icone}
+                {props.icon}
                 <span className={`text-xs font-light`}>
-                    {props.texto}
+                    {props.text}
                 </span>
             </a>
         )
