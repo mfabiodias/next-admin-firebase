@@ -6,12 +6,7 @@ import UserAvatar from './UserAvatar'
 import { IconMenu } from '../icons'
 import SYSADM from '../../config'
 
-interface HeaderProps {
-    title: string
-    subTitle: string
-}
-
-export default function Header(props: HeaderProps) {
+export default function Header(props) {
     const { theme, changeTheme, mobileMenu, sidebarMenu, toggleSidebarMenu } = useAppData()
 
     function changeMenu() {
@@ -19,8 +14,8 @@ export default function Header(props: HeaderProps) {
     }
 
     return (
-        <div className={`flex dark:text-gray-200`}>
-            { !mobileMenu ? null : <div className={`flex items-center cursor-pointer`}>
+        <div className={`flex h-8 mt-5 dark:text-gray-200`}>
+            { !mobileMenu ? null : <div className={`flex items-center cursor-pointer pl-4`}>
                 <span onClick={changeMenu}>
                     {IconMenu(8)}
                 </span>
@@ -31,10 +26,9 @@ export default function Header(props: HeaderProps) {
             <div className={`flex flex-grow justify-end items-center pr-4 `}>
                 <ChangeTheme theme={theme} changeTheme={changeTheme} />
             </div>
-            <div className={`flex justify-end items-center`}>
+            <div className={`flex justify-end items-center pr-4`}>
                 <UserAvatar />
             </div>
         </div>
-            // <Title title={props.title} subTitle={props.subTitle} />
     )
 }

@@ -5,7 +5,9 @@ interface TitleProps {
 
 export default function Title(props: TitleProps) {
     return (
-        <div>
+        <div className={`
+            pb-4
+        `}>
             <h1 className={`
                 font-black text-3xl
                 text-gray-900 dark:text-gray-100
