@@ -25,7 +25,7 @@ export default function Header(props: HeaderProps) {
                     {IconMenu(8)}
                 </span>
             </div> }
-            <div className={`flex items-center pl-4 `}>
+            <div className={`flex items-center font-semibold text-2xl pl-4`}>
                 {SYSADM.BUSSINESS.NAME}
             </div>
             <div className={`flex flex-grow justify-end items-center pr-4 `}>
