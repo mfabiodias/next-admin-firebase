@@ -38,7 +38,7 @@ export default function Login() {
                     alt="Imagem da Tela de Autenticação"
                     className="h-screen w-full object-cover" />
             </div>}
-            <div className={`m-10 ${SYSADM.ADMIN.LOGIN_PAGE_LAYOUT == 1 ? "w-1/3" : "w-full md:w-1/2 lg:w-2/5"}`}>
+            <div className={`m-10 ${SYSADM.ADMIN.LOGIN_PAGE_LAYOUT == 1 ? "w-full sm:w-3/5 lg:w-1/3" : "w-full md:w-1/2 lg:w-2/5"}`}>
                 <h1 className={`text-3xl font-bold mb-5`}>
                     {mode === 'login' ? 'Entre com a Sua Conta' : 'Cadastre-se na Plataforma'}
                 </h1>
